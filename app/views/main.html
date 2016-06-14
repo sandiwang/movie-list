@@ -1,0 +1,57 @@
+<div class="ui stackable grid">
+	<div class="row">
+		<img class="ui fluid image" src="app/images/ali_poster.jpg">
+		<div class="ui statistic mainTitle">
+		    <div class="value">{{ quote.content[0] }}</div>
+		    <div class="label">- {{ quote.source[0] }}</div>
+		    <div class="seeListBtn">
+		    	<button class="ui inverted button" ng-click="scrollTo('#list')">SEE TOP LIST</button>
+		    </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="eight wide computer only tablet only column">
+			<img class="ui fluid image" src="app/images/jesse.jpg">
+		</div>
+		<div class="eight wide column mainList">
+			<div class="ui grid photoDisplay">
+				<div class="eight wide column">
+					<img class="ui fluid image" src="app/images/neon.jpg">
+				</div>
+				<div class="eight wide column">
+					<img class="ui fluid image" src="app/images/joy.jpg">
+				</div>
+				<div class="sixteen wide computer only tablet only column">
+					<img class="ui fluid image" src="app/images/tom2.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+	<a id="list"></a>
+	<div class="row">
+		<div class="ui active inverted dimmer" ng-hide="!isLoading()">
+		    <div class="ui text loader">Loading</div>
+		</div>
+		<div class="sixteen wide column mainList" ng-if="!errorMsg" ng-repeat="(k, v) in topTenMovies">
+			<div class="ui grid">
+				<div class="three wide computer only column">
+					<img class="ui fluid image" src="app/images/{{v.id}}/1.jpg">
+				</div>
+				<div class="ten wide computer sixteen wide column topTenDetailCol">
+					<a class="ui red circular massive horizontal label" href="#/movie/{{ v.id }}">{{ k }}</a>
+					<a href="#/movie/{{ v.id }}"><h1>{{ v.title }}</h1>
+					<p>{{ v.description }}</p></a>
+				</div>
+				<div class="three wide computer only column">
+					<img class="ui fluid image" src="app/images/{{v.id}}/2.jpg">
+				</div>
+				<div class="tablet only mobile only eight wide column" ng-repeat="i in [1,2]">
+					<img class="ui fluid image" src="app/images/{{v.id}}/{{i}}.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="sixteen wide center aligned column" ng-if="errorMsg">
+		<h1>Error: {{ errorMsg }}</h1>
+	</div>
+</div>

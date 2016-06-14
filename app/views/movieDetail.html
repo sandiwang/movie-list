@@ -1,0 +1,103 @@
+<div class="ui stackable grid">
+	<div class="row">
+		<img class="ui fluid image" src="app/images/starwars.jpg">
+		<div class="ui statistic mainTitle">
+		    <div class="value">{{ movieDetail.Title }}</div>
+		    <div class="label"> {{ movieDetail.Rated }} - {{ movieDetail.Runtime }} - {{ movieDetail.Genre }} - {{ movieDetail.Released }}</div>
+		    <div class="seeListBtn">
+		    	<button class="ui inverted button" ng-click="scrollTo('#more')">MORE</button>
+		    </div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="four wide computer only four wide tablet only column" ng-repeat="i in [1,2,3,4]">
+			<img class="ui fluid image" src="app/images/{{ movieId }}/{{i}}.jpg">
+		</div>
+	</div>
+	<div class="computer only tablet only row" ng-if="!errorMsg">
+		<div class="ui active inverted dimmer" ng-hide="!isLoading()">
+		    <div class="ui text loader">Loading</div>
+		</div>
+		<div class="one wide column"></div>
+		<div class="five wide column">
+			<button class="ui blue basic button backBtn" back-Button><i class="left arrow icon"></i>Back</button>
+			<a id="more"></a>
+			<img class="ui fluid centered image moviePoster" src="app/images/{{ movieId }}/poster.jpg">
+		</div>
+		<div class="one wide column"></div>
+		<div class="eight wide column">
+			<table class="ui very basic table">
+				<tr>
+					<th colspan="2">
+						<div class="ui horizontal blue statistic">
+						  <div class="value">
+						    {{ movieDetail.Title }}
+						  </div>
+						</div>
+						<div class="ui right floated blue tiny statistic">
+							<div class="value">
+								{{ movieDetail.imdbRating }} / 10
+							</div>
+							<div class="label">
+								{{ movieDetail.imdbVotes }}
+							</div>
+						</div>
+					</th>
+				</tr>
+				<tr ng-repeat="(k, v) in movieDetail" ng-if="$index > 5 && $index < 15 && k!='Poster'">
+					<th>{{ k }}</th>
+					<td>{{ v }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="mobile only row">
+		<div class="sixteen wide center aligned column">
+			<button class="ui blue basic button backBtn" back-Button><i class="left arrow icon"></i>Back</button>
+			<a id="more"></a>
+		</div>
+		<div class="sixteen wide column">
+			<img class="ui medium centered image moviePoster" src="{{ movieDetail.Poster }}">
+		</div>
+		<div class="sixteen wide column">
+			<table class="ui very basic table">
+				<tr>
+					<th colspan="2">
+						<div class="ui horizontal blue statistic">
+						  <div class="value">
+						    {{ movieDetail.Title }}
+						  </div>
+						</div>
+						<div class="ui right floated blue tiny statistic">
+							<div class="value">
+								{{ movieDetail.imdbRating }} / 10
+							</div>
+							<div class="label">
+								{{ movieDetail.imdbVotes }}
+							</div>
+						</div>
+					</th>
+				</tr>
+				<tr ng-repeat="(k, v) in movieDetail" ng-if="$index > 5 && $index < 15 && k!='Poster'">
+					<th>{{ k }}</th>
+					<td>{{ v }}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="row" ng-if="errorMsg">
+		<div class="sixteen center aligned column">
+			<h1>Error: {{ errorMsg }}</h1>
+		</div>
+	</div>
+	<div class="computer only tablet only row">
+		<div class="four wide column" ng-repeat="i in [5,6,7,8]">
+			<img class="ui fluid image" src="app/images/{{ movieId }}/{{i}}.jpg">
+		</div>
+	</div>
+	<div class="mobile only row">
+		<div class="sixteen wide column" ng-repeat="i in [5,6,7,8]">
+			<img class="ui medium centered image" src="app/images/{{ movieId }}/{{i}}.jpg">
+		</div>
+	</div>
+</div>

@@ -1,0 +1,67 @@
+body{ background-color: #ecf4f9; }
+h1{ margin: 0; }
+.ui.grid { margin:0; }
+.ui.grid > .row { padding-top: 0; padding-bottom: 0; }
+.ui.grid > .column:not(.row), .ui.grid > .row > .column { padding: 0; }
+.ui.grid.photoDisplay{ margin: 0; }
+.ui.grid > .column:not(.row).topTenDetailCol { padding: 2rem 3rem; }
+.ui.grid > .row > .column.aboutAuthor { margin-bottom: 4rem; }
+
+.nav{
+	position: absolute;
+	top: 2rem;
+	right: 2rem;
+	z-index: 1;
+}
+
+.ui.link.list a.item { color: rgba(255,255,255,0.4); }
+.ui.link.list a.item:hover{ color: rgba(255,255,255,1); }
+
+.mainTitle{
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 37.5%;
+	bottom: 0;
+	z-index: 1;
+}
+
+.ui.statistic.mainTitle .value{ color: #fff; margin-left: 4rem; margin-right: 4rem; }
+.ui.statistic.mainTitle .label, .seeListBtn .ui.inverted.button{
+	color: rgba(255,255,255,0.8);
+}
+
+.ui.statistic.mainTitle .label{ 
+	margin: 2rem 4rem;
+	font-weight: normal;
+	font-size: 1.2em;
+	letter-spacing: 1px;
+}
+
+.ui.statistic.aboutTitle .value{ margin-top: 4rem; }
+.seeListBtn{ margin:3rem auto 0 auto; }
+
+.seeListBtn .ui.inverted.button, .seeListBtn .ui.inverted.button:hover, .seeListBtn .ui.inverted.button:focus{
+	box-shadow:0px 0px 0px 2px rgba(255,255,255,0.8) inset !important;
+}
+
+.seeListBtn .ui.inverted.button:hover, .seeListBtn .ui.inverted.button:focus{ color: #191919; }
+.topTenDetailCol h1{ display: inline-block; }
+.topTenDetailCol p{ margin: 1.5rem auto; font-size: 16px; color: #000; }
+.ui.table tr th{ font-size: 1.2rem; }
+.ui.table tr td{ font-size: 1.1rem; line-height: 1.5em; }
+.ui.table:first-child{ margin-top: 5rem; }
+.ui.table:last-child{ margin-bottom: 4rem; }
+img.moviePoster{  margin-bottom: 4rem; }
+.ui.button.backBtn{ margin-top: 2rem; margin-bottom: 1rem; }
+.authorTitle h3, .authorTitle h4{ display: inline-block; }
+.authorTitle h3{ margin-right: 1rem; }
+
+@media only screen and (max-width: 767px){
+	.ui.stackable.grid > .row > .wide.column.mainList, .ui.stackable.grid > .wide.column.mainList, .ui.stackable.grid > .column.grid > .column.mainList.mainList, .ui.stackable.grid > .column.row > .column.mainList, .ui.stackable.grid > .row > .column.mainList, .ui.stackable.grid > .column:not(.row).mainList, .ui.grid > .stackable.stackable.row > .column.mainList{
+		padding: 0rem !important;
+	}
+	img.moviePoster{  margin-bottom: 1rem; }
+	.ui.table:last-child{ margin-bottom: 2rem; }
+	.ui.table:first-child{ margin-top: 0.5rem; }
+}

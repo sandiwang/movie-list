@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Top Ten Movies in 2015 by YCW</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/semantic-ui/dist/semantic.css" />
+    <link rel="stylesheet" href="app/styles/main.css">
+    <link rel="stylesheet" href="app/styles/animations.css">
+    <link rel="icon" type="image/x-icon" href="/icon.ico">
+  </head>
+  <body ng-app="movieListApp">
+
+    <div class="ui horizontal relaxed large link list nav">
+      <a class="item" href="#/">
+        HOME
+      </a>
+      <!--
+      <a class="item" href="#/movie">
+        MOVIES
+      </a>
+      -->
+      <a class="item" href="#/about">
+          ABOUT
+      </a>
+    </div>
+
+    <div ng-view="" class="view-frame"></div>
+
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/semantic-ui/dist/semantic.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+
+
+    <script src="app/scripts/app.js"></script>
+    <script src="app/scripts/controllers/main.js"></script>
+</body>
+</html>

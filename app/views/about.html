@@ -1,0 +1,73 @@
+<div class="ui stackable grid">
+	<div class="row">
+		<img class="ui fluid image" src="app/images/blake.jpg">
+		<div class="ui statistic mainTitle">
+		    <div class="value">{{ quote.content[1] }}</div>
+		    <div class="label">- {{ quote.source[1] }}</div>
+		    <div class="seeListBtn">
+		    	<button class="ui icon inverted button" ng-click="scrollTo('#list')"><i class="down arrow icon"></i></button>
+		    </div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="ui grid photoDisplay">
+			<div class="four wide column" ng-repeat="photo in photos.about">
+				<img class="ui fluid image" src="app/images/{{ photo }}.jpg">
+			</div>
+		</div>
+	</div>
+	
+	<a id="list"></a>
+	<div class="centered row">
+		<div class="twelve wide column">
+			<div class="ui statistic aboutTitle">
+				<div class="value">about this site</div>
+			</div>
+			<div class="ui section divider"></div>
+		</div>
+	</div>
+	<div class="centered row">
+		<div class="twelve wide column">
+			<h2>The purpose of the site is to demonstrate techniques of Angular</h2>
+			<h4>Implementations include $http, routing, facotry, animations, and directives.</h4>
+			<p>The top movies list is a JSON file and is accessed through the $http service provided by Angular. The idea is to get the data from JSON file and display them in a clear and nice way to the users.</p>
+			<p>Also, in order to get detail information about each movie, I need an api to help with that. In this case, I am using <a href="{{ omdbUrl }}" target="_blank">OMDB API</a> to get data from <a href="{{ imdbUrl }}" target="_blank">IMDB</a> since IMDB doesn't seem to provide any official API. So the workflow is, when the page lands, get movie list from local file and display it. As user clicks for detail information, OMDB api will get what we want back so that we can again display them.</p>
+			<p>Anchor link/Smooth Scroll is done using jQuery method animate and is defined in a factory so that different controllers can share this function.</p>
+			<p>The go-to-previous-page function is implemented as a Back button shown in each movie's page. This is done in a directive named "backButton" which simply calls the $window function to go back to previous page.</p>
+			<p>If you are looking for the CSS mark-up framework of this site, it's Semantic-UI.</p>
+			<h5>Some todos: (1) Migrate from ngRoute to UI Router (2) Scroll animations on viewport enter (3) Movie custom search function</h5>
+			<h3 style="margin-bottom: 4rem;">All the photos and data are from <a href="{{ imdbUrl }}" target="_blank">IMDB</a>. I do not own any rights.</h3>
+		</div>
+	</div>
+	<div class="centered row">
+		<div class="twelve wide column">
+			<div class="ui small statistic aboutTitle">
+				<div class="value">about the author</div>
+			</div>
+			<div class="ui divider"></div>
+		</div>
+	</div>
+	<div class="centered row">
+		<div class="twelve wide column aboutAuthor">
+			<div class="ui grid">
+				<div class="four wide column">
+					<img class="ui small circular image" src="app/images/author.jpg">
+				</div>
+				<div class="twelve wide column">
+					<a class="authorTitle" href="{{ authorInfo.website }}" target="_blank">
+						<h3>{{ authorInfo.name }}</h3>
+						<h4>{{ authorInfo.title }}</h4></a>
+					<p>{{ authorInfo.description }}</p>
+					<div class="ui celled horizontal list">
+					  <a class="item" href="mailto:{{ authorInfo.email }}">E-mail</a>
+					  <a class="item" href="{{ authorInfo.linkedin }}" target="_blank">LinkedIn</a>
+					  <a class="item" href="{{ authorInfo.website }}" target="_blank">Website</a>
+					  <a class="item" href="{{ authorInfo.tumblr }}" target="_blank">Tumblr</a>
+					</div>
+				</div>
+			</div>
+			<div class="ui divider"></div>
+		</div>
+	</div>
+</div>
